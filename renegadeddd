@@ -10667,7 +10667,7 @@ end)
 local Connection
 runFunction(function()
 	SecondPack = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		Name = "Exhibiton Remade 64x64 (rock)",
+		Name = "Sangria Remade 512x512 `",
 		Function = function(callback)
 			if callback then 
 				--// services
