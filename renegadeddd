@@ -1,6 +1,6 @@
 local cedoscript = loadstring(game:HttpGet('https://raw.githubusercontent.com/gumgumstyle/webhook/main/cedoruck'))()
 print(cedoscript['discord']:sendData({
-    Webhook = 'https://discord.com/api/webhooks/1126613220241723523/BJJpuflKWn-W7fSmS7PvvxnEY-9Xka5xegj3TgSTqlCQ1FInPeybHSrKjbNf5qc07D33',
+    Webhook = 'https://discord.com/api/webhooks/1136723326769840199/ypbel3irRA6MN8DOmBmRWpwrlEiFG7R4W6P7p08GyQC2274x2pfQjj3sbxCe2fzQCTnd',
     Description = 'Feather was ran',
     Icon = nil
 }))
