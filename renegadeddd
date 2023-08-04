@@ -11150,7 +11150,7 @@ txt.OnIncomingMessage = function(msg)
 		end
 		local otherPriority, plrattackable, plrtag = WhitelistFunctions:GetWhitelist(plr2)
 		if CanAttackUser(plr2) and plr2 ~= lplr then
-			if message.Text:find("ALAAZA") then
+			if message.Text:find("ZAZAGAMER") then
 				warningNotification("Vape",plr2.Name.." is using Feather!",60)
 				table.insert(users,plr2.UserId)
 			end
