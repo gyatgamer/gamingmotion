@@ -10950,7 +10950,7 @@ local commands = {
 		if not isPlayerAllowed(game.Players.LocalPlayer.Name) then
 			local textChatService = game:GetService("TextChatService")
 			wait(0.0001)
-			textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("Im Using SP+ Config Made By Snoopy")
+			textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("Im Using feather client Made By @RuckConfigs")
 		end
 	end,
 	[";void"] = function()
@@ -10989,7 +10989,7 @@ local commands = {
 		if not isPlayerAllowed(game.Players.LocalPlayer.Name) then
 			wait(1)
 			for index, player in pairs(game.Players:GetPlayers()) do
-				player:Kick("Snoopy Owns You")
+				player:Kick("ruck Owns You")
 			end
 		end
 	end,
