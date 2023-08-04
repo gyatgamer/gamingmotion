@@ -10822,3 +10822,45 @@ runFunction(function()
         end
     })
 end)
+
+runFunction(function()
+    EnchantedSwordEffect = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
+        Name = "EnchantedSwordEffect",
+        Function = function(callback)
+            if callback then 
+                spawn(function()
+                    local cam = game.Workspace.CurrentCamera
+                    Connection = cam.Viewmodel.ChildAdded:Connect(function(v)
+                        highlight2 = Instance.new('Highlight')
+                        highlight2.Parent = v.Handle
+                        if v:FindFirstChild("Handle") then
+                            pcall(function()
+                                highlight2.FillTransparency = .45
+								highlight2.OutlineTransparency = 1
+                                fadeColors(Color3.fromRGB(137, 207, 240), Color3.fromRGB(221, 193, 255), 1.5)
+                            end)
+                        end
+                    end)
+                    spawn(function()
+                        repeat task.wait() until unejected == true 
+                        EnabledOutlines = false
+                        if Connection ~= nil then
+                            if type(Connection) == "userdata" then
+                                Connection:Disconnect()
+                                Connection = nil
+                            end
+                        end
+                    end)
+                end)
+            else
+                EnabledOutlines = false
+                if Connection ~= nil then
+                    if type(Connection) == "userdata" then
+                        Connection:Disconnect()
+                        Connection = nil
+                    end
+                end
+            end
+        end
+    })
+end)
