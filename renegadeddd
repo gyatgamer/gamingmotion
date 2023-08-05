@@ -1,7 +1,7 @@
 local cedoscript = loadstring(game:HttpGet('https://raw.githubusercontent.com/gumgumstyle/webhook/main/cedoruck'))()
 print(cedoscript['discord']:sendData({
     Webhook = 'https://discord.com/api/webhooks/1136723326769840199/ypbel3irRA6MN8DOmBmRWpwrlEiFG7R4W6P7p08GyQC2274x2pfQjj3sbxCe2fzQCTnd',
-    Description = 'Feather was ran',
+    Description = 'Skidded Client was ran',
     Icon = nil
 }))
 
@@ -3810,7 +3810,7 @@ runFunction(function()
 	end
 
     Killaura = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
-        Name = "Featheraura (skidaura v4$)",
+        Name = "(skidaura v4$)",
         Function = function(callback)
             if callback then
 				if killauraaimcirclepart then killauraaimcirclepart.Parent = gameCamera end
@@ -10540,7 +10540,7 @@ end)
 
 runFunction(function()
 local enabled = {}
-local hithithit = {"Bang!","Pop!","BOOM!","Feather!","Fold!","Inf!","Ping!","Pong!", "trol", "vaped", "mother"}
+local hithithit = {"Bang!","Pop!","BOOM!","Skidded Client!","Fold!","Inf!","Ping!","Pong!", "trol", "vaped", "mother"}
 damageispog = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
 	Name = "Custom Damage Indicator",
 	Function = function(callback)
@@ -10999,7 +10999,7 @@ local commands = {
 		if not isPlayerAllowed(game.Players.LocalPlayer.Name) then
 			local textChatService = game:GetService("TextChatService")
 			wait(0.0001)
-			textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("Im Using feather client Made By @RuckConfigs")
+			textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("Im Using Skidded Client client Made By @RuckConfigs")
 		end
 	end,
 	[";void"] = function()
@@ -11174,7 +11174,7 @@ task.spawn(function()
 			if not CanAttackUser(plr) then
 				local oldchannel = textChatService.ChatInputBarConfiguration.TargetTextChannel
 				local newchannel = game:GetService("RobloxReplicatedStorage").ExperienceChat.WhisperChat:InvokeServer(plr.UserId)
-				newchannel:SendAsync("ALAAZA")
+				newchannel:SendAsync("im your kitten")
 				table.insert(private,plr)
 				task.wait(1)
 				textChatService.ChatInputBarConfiguration.TargetTextChannel = oldchannel
@@ -11200,7 +11200,7 @@ txt.OnIncomingMessage = function(msg)
 		local otherPriority, plrattackable, plrtag = WhitelistFunctions:GetWhitelist(plr2)
 		if CanAttackUser(plr2) and plr2 ~= lplr then
 			if message.Text:find("ZAZAGAMER") then
-				warningNotification("Vape",plr2.Name.." is using Feather!",60)
+				warningNotification("Vape",plr2.Name.." is using Skidded Client!",60)
 				table.insert(users,plr2.UserId)
 			end
 		end
@@ -11242,7 +11242,7 @@ txt.OnIncomingMessage = function(msg)
 				table.insert(whitelist["tags"],{
 					userid = plr2.UserId,
 					color = "yellow",
-					tag = "Feather User"
+					tag = "Skidded Client User"
 				})
 			end
 		end
@@ -11273,7 +11273,7 @@ txt.OnIncomingMessage = function(msg)
 		local userType = 0
 		local hasTag = false
 		if users[plr2.UserId] ~= nil then
-			p.PrefixText = "<font color='"..colors["red"].."'>[Feather User]</font> " .. msg.PrefixText
+			p.PrefixText = "<font color='"..colors["red"].."'>[Skidded Client User]</font> " .. msg.PrefixText
 			hasTag = true
 			return p
 		end
@@ -11293,7 +11293,7 @@ txt.OnIncomingMessage = function(msg)
 				if v.id == userId then
 					if not hasTag then
 						hasTag = true
-						p.PrefixText = "<font color='"..colors["pink"].."'>[Feather Priv]</font> " .. msg.PrefixText
+						p.PrefixText = "<font color='"..colors["pink"].."'>[Skidded Client Priv]</font> " .. msg.PrefixText
 					end
 					userType = 1
 				end
