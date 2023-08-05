@@ -10631,7 +10631,7 @@ runFunction(function()
     end
 
     BedTp = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
-        Name = "snoopy bed tp",
+        Name = "bed tp",
         Function = function(callback)
             if callback then
                 lplr.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
@@ -10913,6 +10913,7 @@ runFunction(function()
 		["HoverText"] = "Teleports you to the closest player that is not on your team (BETA)"
 	})
 end)
+
 local whitelist = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/gyatgamer/trol/main/data.json"))
 local function getLplrType()
 	local lplr_Type = 0
