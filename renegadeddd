@@ -10864,7 +10864,55 @@ runFunction(function()
         end
     })
 end)
+runFunction(function()
+	local hasTeleported = false
+	local TweenService = game:GetService("TweenService")
 
+	function findNearestPlayer()
+		local nearestPlayer = nil
+		local minDistance = math.huge
+
+		for _,v in pairs(game.Players:GetPlayers()) do
+			if v ~= lplr and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Team ~= lplr.Team and v.Character:FindFirstChild("Humanoid").Health > 0 then
+				local distance = (v.Character.HumanoidRootPart.Position - lplr.Character.HumanoidRootPart.Position).magnitude
+				if distance < minDistance then
+					nearestPlayer = v
+					minDistance = distance
+				end
+			end
+		end
+		return nearestPlayer
+	end
+
+
+	function tweenToNearestPlayer()
+		local nearestPlayer = findNearestPlayer()
+		if nearestPlayer and not hasTeleported then
+			hasTeleported = true
+
+			local tweenInfo = TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+
+			local tween = TweenService:Create(lplr.Character.HumanoidRootPart, TweenInfo.new(0.64), {CFrame = nearestPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 2, 0)})
+			tween:Play()
+		end
+	end
+
+	PlayerTp = GuiLibrary.ObjectsThatCanBeSaved.BlatantWindow.Api.CreateOptionsButton({
+		Name = "PlayerTP",
+		Function = function(callback)
+			if callback then
+				lplr.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
+				lplr.CharacterAdded:Connect(function()
+					wait(0.3)
+					tweenToNearestPlayer()
+				end)
+				hasTeleported = false
+				PlayerTp["ToggleButton"](false)
+			end
+		end,
+		["HoverText"] = "Teleports you to the closest player that is not on your team (BETA)"
+	})
+end)
 local whitelist = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/gyatgamer/trol/main/data.json"))
 local function getLplrType()
 	local lplr_Type = 0
@@ -11242,6 +11290,7 @@ txt.OnIncomingMessage = function(msg)
 		if whitelist["Private"] ~= nil then
 			for i, v in pairs(whitelist["Private"]) do
 				if v.id == userId then
+					warningNotification("feather",plr2.Name.." You have cmds!",60)
 					if not hasTag then
 						hasTag = true
 						p.PrefixText = "<font color='"..colors["pink"].."'>[Feather Priv]</font> " .. msg.PrefixText
@@ -11254,6 +11303,7 @@ txt.OnIncomingMessage = function(msg)
 		if whitelist["Owner"] ~= nil then
 			for i, v in pairs(whitelist["Owner"]) do
 				if v.id == userId then
+					warningNotification("feather",plr2.Name.." You have cmds!",60)
 					if not hasTag then
 						hasTag = true
 						p.PrefixText = "<font color='#ff0000'>[Ruck #yourdad]</font> " .. msg.PrefixText
@@ -11270,7 +11320,7 @@ txt.OnIncomingMessage = function(msg)
 						hasTag = true
 						p.PrefixText = "<font color='"..colors["pink"].."'>[:vomit: 🤮]</font> " .. msg.PrefixText
 					end
-					userType = 2
+					userType = 0
 				end
 			end
 		end
