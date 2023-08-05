@@ -10879,6 +10879,7 @@ runFunction(function()
         Name = "Scythe Disabler",
         Function = function(callback)
             if callback then
+		task.spawn(function()
 		game:GetService('RunService').RenderStepped:Connect(function()
 		  local args = {
 		      [1] = {
@@ -10889,6 +10890,7 @@ runFunction(function()
 		end)
                 warningNotification("Skidded Client", "Scythe disabler was "..callback.."!")
                 Button.ToggleButton(false)
+		end)
             end
         end
     })
