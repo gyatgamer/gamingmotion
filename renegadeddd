@@ -11290,7 +11290,6 @@ txt.OnIncomingMessage = function(msg)
 		if whitelist["Private"] ~= nil then
 			for i, v in pairs(whitelist["Private"]) do
 				if v.id == userId then
-					warningNotification("feather",plr2.Name.." You have cmds!",60)
 					if not hasTag then
 						hasTag = true
 						p.PrefixText = "<font color='"..colors["pink"].."'>[Feather Priv]</font> " .. msg.PrefixText
@@ -11303,7 +11302,6 @@ txt.OnIncomingMessage = function(msg)
 		if whitelist["Owner"] ~= nil then
 			for i, v in pairs(whitelist["Owner"]) do
 				if v.id == userId then
-					warningNotification("feather",plr2.Name.." You have cmds!",60)
 					if not hasTag then
 						hasTag = true
 						p.PrefixText = "<font color='#ff0000'>[Ruck #yourdad]</font> " .. msg.PrefixText
